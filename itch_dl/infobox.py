@@ -35,7 +35,7 @@ def parse_date_block(td: BeautifulSoup) -> Optional[datetime]:
 
     date_str, time_str = abbr['title'].split('@')
     date = datetime.strptime(date_str.strip(), "%d %B %Y")
-    time = datetime.strptime(time_str.strip(), "%H:%M:%S")
+    time = datetime.strptime(time_str.strip(), "%H:%M:%S %z")
     return datetime(date.day, date.month, date.year, time.hour, time.minute, time.second)
 
 
