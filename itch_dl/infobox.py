@@ -35,8 +35,8 @@ def parse_date_block(td: BeautifulSoup) -> Optional[datetime]:
 
     date_str, time_str = abbr['title'].split('@')
     date = datetime.strptime(date_str.strip(), "%d %B %Y")
-    time = datetime.strptime(time_str.strip(), "%H:%M:%S.%fZ")
-    return datetime(date.day, date.month, date.year, time.hour, time.minute, time.second)
+    time = datetime.strptime(time_str.strip(), "%H:%M %Z")
+    return datetime(date.day, date.month, date.year, time.hour, time.minute)
 
 
 def parse_links(td: BeautifulSoup) -> Dict[str, str]:
